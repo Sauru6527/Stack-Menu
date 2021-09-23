@@ -1,0 +1,254 @@
+#include<stdio.h>
+#define SIZE 5
+void isempty();
+void isfull();
+void ispush();
+void ispop();
+void isapop();
+void display();
+void displayver();
+void peek();
+void count();
+void search();
+void poptill();
+
+int top=-1;
+int stack[SIZE]={0};
+int main()
+
+{
+	
+	int choice;
+	while(1)
+	{
+	
+	puts("\n********STACK OPERATION********\n");
+	puts("1:   IS asasEMPTY ");
+	puts("2:   IS FULL");
+	puts("3:   IS  PUSH");
+	puts("4:   IS  POP");
+	puts("5:   IS  APOP");
+	puts("6:   IS  DISPLAY");
+	puts("7:   IS  DISPLAYVERTICAL");
+	puts("8:   IS  PEEK");
+	puts("9:   IS  COUNT");
+	puts("11:   IS SEARCH");
+	puts("12:   IS  POPTILL");
+	printf("\nENTER CHOICE = ");
+	scanf("%d",&choice);
+	
+	switch(choice)
+	{
+	  case 1:
+	         isempty();
+	  	     break;
+	  	
+	  	case 2:
+	  	      isfull();
+	  	      break;
+	  		
+	  		case 3:
+	  			   ispush();
+	  			    break;
+	  			
+	  			case 4:
+	  			      ispop();
+	  				   break;
+	  				
+	  				case 5:
+	  			           isapop();
+	  			     	   break;
+	  			     	   
+	  			     	case 6:
+	  			               display();
+	  			     	       break;
+	  				
+	  			     	case 7:
+	  			               displayver();
+	  			     	       break;
+	  			     	       
+	  			     	    case 8:
+	  			               peek();
+	  			     	       break;
+	  			     	       
+	  			     	       case 9:
+	  			     	              count();
+	  			     	              break;
+	  			     	              
+	  			     	              case 11:
+	  			     	              search();
+	  			     	              break;
+	  				
+	  			                	 case 12:
+	  			     	              poptill();
+	  			     	              break;
+	  				
+	  				case 10:
+	  					   return 0;
+	  					
+	    }
+     } 
+	return 0;
+}
+
+
+void isempty()
+{
+	if(top==-1)
+	{
+		printf("\nYOUR STACK IS EMPTY");
+	}
+	else
+	{
+		printf("\nYOUR STACK IS NOT EMPTY");
+	}
+}
+
+
+void isfull()
+{
+	if(top==SIZE-1)
+	{
+		printf("STACK IS FULL");
+	}
+	
+	else
+	{
+		printf("STACK IS NOT FULL");
+	}
+}	  				
+	  	
+void ispush()
+{
+	if(top==SIZE-1)
+	{
+		printf("STOCK IS FULL");
+		return ;
+	}
+	else
+	{
+	    int value;
+		printf("ENTER VALUE = ");
+		scanf("%d",&value);
+		     
+			top++;		
+		    stack[top]=value;
+		}
+		
+	
+	}	
+		
+void ispop()
+{
+	{
+	top--;    //DELETING THE CURRENT TOP INDEX
+    printf("ELEMENT REMOVED SUCCESSFULLY");
+	}
+	
+	return ;
+	}
+	
+	void isapop()
+{
+	if(top==SIZE-1)
+	{
+		top--;
+		printf("ELEMENT REMOVED SUCCESSFULLY");
+	}
+	
+	else
+	{
+		printf("STACK IS NOT FULL");	
+	}
+}		
+	
+void display()
+{
+	if(top==-1)
+	{
+		printf("STOCK IS EMPTY");
+	}
+	
+	for(int i=0;i<=top;i++)
+		{
+			printf("%d",stack[i]);
+		}		
+}
+
+void displayver()
+{
+		if(top==-1)
+	{
+		printf("STOCK IS EMPTY \n");
+	}
+	
+	for(int i=0;i<=top;i++)
+		{
+			printf("%d",stack[i]);
+					printf("\n");	
+		}	
+}
+
+
+void peek()	
+{
+	int peek;
+	peek=stack[top];
+	printf("%d",stack[top]);
+}
+
+void count()
+{
+	int cnt=0;
+	for(int i=0;i<=top;i++)
+	{
+		cnt++;
+	}
+	printf("%d",cnt);
+}
+
+void search()
+{
+	int search,flag;
+	printf("ENTER THE VALUE YOU WANT TO SEARCH ");
+	scanf("%d",&search);
+	
+	for(int i=0;i<=top;i++)
+	{
+	  if(search==stack[i])
+	  {
+	  	flag=1;
+	  	break;
+	   }
+	   
+    }
+	
+	if(flag==1)
+	{
+		printf("VALUE FOUND!!!");
+	}
+	
+	else
+	{
+		printf("VALUE NOT FOUND");
+	}	
+}	
+
+
+void poptill()
+	{
+		int pop_till=0;
+		printf("ENTER THE INDEX TILL WHERE YOU WANT TO POP");
+		scanf("%d",&pop_till);
+		
+		for(int i=top;i>=pop_till;i--)
+		{
+			stack[i]=0;
+			
+		}
+		printf("POPTILL DONE");
+	}
+	
+
+
+
